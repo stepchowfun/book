@@ -1,0 +1,34 @@
+\documentclass[oneside]{book}
+
+\usepackage[T1]{fontenc} % The font encoding
+\usepackage[utf8]{inputenc} % The input encoding
+\usepackage{makeidx} % For the index
+\usepackage{natbib} % For citations and references
+
+\citestyle{authoryear}
+\bibliographystyle{plainnat}
+\makeindex
+
+\title{Foundations of Functional Programming}
+\author{Stephan Boyer}
+\date{}
+
+\begin{document}
+  \frontmatter
+
+  \maketitle
+
+  \tableofcontents
+
+  \mainmatter
+
+  \chapter{Introduction}
+
+    \citet{wadler89} introduced type classes\index{type class}.
+
+  \backmatter
+
+  \bibliography{references}
+
+  \printindex
+\end{document}

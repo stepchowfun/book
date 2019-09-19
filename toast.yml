@@ -1,0 +1,36 @@
+image: ubuntu:18.04
+tasks:
+  install_packages:
+    command: |
+      set -euo pipefail
+      export DEBIAN_FRONTEND=noninteractive
+      apt-get update
+      apt-get --yes install texlive-full
+
+  create_user:
+    command: |
+      set -euo pipefail
+      adduser --disabled-password --gecos '' user
+
+  build:
+    dependencies:
+      - create_user
+      - install_packages
+    input_paths:
+      - src
+    output_paths:
+      - book.pdf
+    user: user
+    command: |
+      set -euo pipefail
+      cd src
+      while
+        pdflatex -halt-on-error -interaction=nonstopmode main.tex || exit 1
+        bibtex main.aux || exit 1
+        makeindex main || exit 1
+        grep -qi 'Label(s) may have changed.' 'main.log' ||
+          grep -qi 'Rerun to get outlines right' 'main.log' ||
+          grep -qi 'There were undefined citations.' 'main.log' ||
+          grep -qi 'Citation(s) may have changed.' 'main.log'
+      do true; done
+      mv main.pdf ../book.pdf
