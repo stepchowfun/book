@@ -1,19 +1,12 @@
 image: ubuntu:18.04
 default: build
 tasks:
-  install_latex:
+  install_packages:
     command: |
       set -euo pipefail
       export DEBIAN_FRONTEND=noninteractive
       apt-get update
-      apt-get --yes install texlive-full
-
-  install_aws_cli:
-    command: |
-      set -euo pipefail
-      export DEBIAN_FRONTEND=noninteractive
-      apt-get update
-      apt-get --yes install python-pip
+      apt-get --yes install git python-pip texlive-full
       pip install awscli
 
   create_user:
@@ -24,8 +17,9 @@ tasks:
   build:
     dependencies:
       - create_user
-      - install_latex
+      - install_packages
     input_paths:
+      - .git
       - src
     output_paths:
       - book.pdf
@@ -33,6 +27,9 @@ tasks:
     command: |
       set -euo pipefail
       cd src
+      echo -n 'This draft was generated from commit \commit{' > version.tex
+      echo -n "$(git rev-parse --short HEAD)" >> version.tex
+      echo -n '} on \today.' >> version.tex
       while
         pdflatex -halt-on-error -interaction=nonstopmode main.tex || exit 1
         bibtex main.aux || exit 1
@@ -47,7 +44,6 @@ tasks:
   publish:
     dependencies:
       - build
-      - install_aws_cli
     environment:
       AWS_ACCESS_KEY_ID: null
       AWS_DEFAULT_REGION: null
