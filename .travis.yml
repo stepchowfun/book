@@ -12,10 +12,18 @@ script:
   - |
     if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then
       WRITE_REMOTE_CACHE=true
+
+      if [ "$TRAVIS_BRANCH" = "master" ]; then
+        TOAST_TASK=publish
+      else
+        TOAST_TASK=build
+      fi
     else
       WRITE_REMOTE_CACHE=false
+      TOAST_TASK=build
     fi
-    toast \
+
+    toast "$TOAST_TASK" \
       --repo stephanmisc/toast \
       --read-remote-cache true \
       --write-remote-cache "$WRITE_REMOTE_CACHE"
