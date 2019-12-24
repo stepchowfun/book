@@ -32,12 +32,9 @@ tasks:
       echo -n '} on \today.' >> version.tex
       while
         pdflatex -halt-on-error -interaction=nonstopmode main.tex || exit 1
-        bibtex main.aux || exit 1
+        biber main.bcf || exit 1
         makeindex main || exit 1
-        grep -qi 'Label(s) may have changed.' 'main.log' ||
-          grep -qi 'Rerun to get outlines right' 'main.log' ||
-          grep -qi 'There were undefined citations.' 'main.log' ||
-          grep -qi 'Citation(s) may have changed.' 'main.log'
+        grep -Piq '\brerun(?!filecheck)\b(?!( checks))' 'main.log'
       do true; done
       mv main.pdf ../book.pdf
 

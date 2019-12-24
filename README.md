@@ -1,7 +1,7 @@
-# Foundations of Functional Programming
+# Elements of Programming Language Theory
 
 [![Build Status](https://travis-ci.org/stepchowfun/book.svg?branch=master)](https://travis-ci.org/stepchowfun/book)
 
-This is a book about functional programming.
+This is a book about the theory of programming languages.
 
-Copyright © 2019 Stephan Boyer. All rights reserved.
+Copyright © 2020 Stephan Boyer. All rights reserved.
