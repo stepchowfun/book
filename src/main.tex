@@ -1,19 +1,21 @@
-\documentclass[oneside]{book}
+\documentclass[oneside,14pt]{extbook}
 
 \usepackage[T1]{fontenc} % The font encoding
 \usepackage[utf8]{inputenc} % The input encoding
-\usepackage{mathpazo} % The Palatino font
+\usepackage{libertine} % The Linux Libertine typeface
+\usepackage[libertine]{newtxmath} % Math font based on Linux Libertine
 \usepackage[hidelinks,pdfa]{hyperref} % For clickable links
 \usepackage{bookmark} % For `\bookmarksetup{startatroot}`
 \usepackage[style=authoryear]{biblatex} % For citations and references
 \usepackage{imakeidx} % For the index
 \usepackage{microtype} % For micro-typography
 \usepackage{pdfpages} % For the cover page
+\usepackage[Lenny]{fncychap} % For fancy chapter headings
 
-% Load the references
+% Load the references.
 \addbibresource{references.bib}
 
-% Set up the index
+% Set up the index.
 \makeindex[intoc]
 
 \title{Elements of Programming Languages}
@@ -27,11 +29,33 @@
 
   \includepdf{cover}
 
+  \pagebreak
+  \hspace{0pt}
+  \vfill
+    \noindent Copyright \copyright{} \the\year{} Stephan Boyer. All rights reserved.
+
+    \bigbreak
+
+    \noindent This book was typeset by the author using the \LaTeX{} document preparation system.
+
+    \bigbreak
+
+    \noindent The image featured on the cover depicts Mount Semeru and the Tumpak Sewu Waterfalls in East Java, Indonesia. The photograph was captured by Filippo Cesarini and is available under the Creative Commons Zero license.
+  \vfill
+  \hspace{0pt}
+  \pagebreak
+
   \input{00_preface}
 
   \tableofcontents
 
   \mainmatter
+
+  % Customize the chapter heading style.
+  \ChNameVar{}
+  \ChNumVar{\fontsize{60}{62}\selectfont}
+  \ChTitleVar{\Huge\bfseries\rm}
+  \ChRuleWidth{1pt}
 
   \part{Syntax}
 
