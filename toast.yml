@@ -27,7 +27,7 @@ tasks:
     command: |
       set -euo pipefail
       cd src
-      echo -n 'This draft was generated from commit \commit{' > version.tex
+      echo -n 'This text was generated from commit \commit{' > version.tex
       echo -n "$(git rev-parse --short HEAD)" >> version.tex
       echo -n '} on \today.' >> version.tex
       while

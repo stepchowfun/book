@@ -8,11 +8,15 @@
 \usepackage[style=authoryear]{biblatex} % For citations and references
 \usepackage{imakeidx} % For the index
 \usepackage{microtype} % For micro-typography
+\usepackage{pdfpages} % For the cover page
 
+% Load the references
 \addbibresource{references.bib}
+
+% Set up the index
 \makeindex[intoc]
 
-\title{Elements of Programming Language Theory}
+\title{Elements of Programming Languages}
 \author{Stephan Boyer}
 \date{}
 
@@ -21,7 +25,7 @@
 
   \frontmatter
 
-  \maketitle
+  \includepdf{cover}
 
   \input{00_preface}
 
