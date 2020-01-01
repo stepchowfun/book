@@ -36,7 +36,14 @@ tasks:
         makeindex main || exit 1
         grep -Piq '\brerun(?!filecheck)\b(?!( checks))' 'main.log'
       do true; done
-      mv main.pdf ../book.pdf
+      gs \
+        -sDEVICE=pdfwrite \
+        -dCompatibilityLevel=1.4 \
+        -dPDFSETTINGS=/prepress \
+        -dNOPAUSE \
+        -dBATCH \
+        -sOutputFile=../book.pdf \
+        main.pdf
 
   publish:
     dependencies:
