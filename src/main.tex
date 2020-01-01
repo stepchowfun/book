@@ -2,14 +2,15 @@
 
 \usepackage[T1]{fontenc} % The font encoding
 \usepackage[utf8]{inputenc} % The input encoding
+\usepackage{mathpazo} % Palatino font
+\usepackage[hidelinks]{hyperref} % To make links clickable
+\usepackage[style=authoryear]{biblatex} % For citations and references
 \usepackage{makeidx} % For the index
-\usepackage{natbib} % For citations and references
 
-\citestyle{authoryear}
-\bibliographystyle{plainnat}
+\addbibresource{references.bib}
 \makeindex
 
-\title{Foundations of Functional Programming}
+\title{Elements of Programming Language Theory}
 \author{Stephan Boyer}
 \date{}
 
@@ -22,21 +23,83 @@
 
   \tableofcontents
 
-    \vspace{\fill}
+  \chapter{Preface}
 
-    \begin{footnotesize}
-      \noindent \input{version.tex}
-    \end{footnotesize}
+    This book is an invitation to programming language theory. It explains the mathematical devices used by researchers to formally specify programming languages, prove properties about them, and reason about programs written in them. From a bird's eye view, the three topics of this book are \emph{syntax}, \emph{semantics}, and \emph{types}. To keep the scope of the book manageable, implementation concerns such as optimization and garbage collection are not covered.
+
+    \section*{Audience}
+
+    \section*{Goals}
+
+    \section*{Prerequisites}
+
+      This text is intended to be reasonably self-contained, but the reader is expected to have a certain mathematical literacy.
+
+      A naive understanding of the concept of \emph{set} is assumed, but no formal treatment (e.g., Zermelo--Fraenkel set theory) will be needed. The reader should be familiar with the basic operations on sets, such as union. Be sure to avoid conflating the mathematical concept of set with the abstract data type known as set. The former, which we will use extensively in this book, may be finite or infinite, whereas the latter is typically restricted to be finite.
+
+      The reader is not assumed to know any category theory. Category theory will make an appearance, but the relevant concepts will be introduced as needed.
+
+      These are modest prerequisites for a text on programming language theory, and perhaps that is one of the selling points for this book. In particular, it is hoped that both computer science students and professional programmers will be able to read and understand this book.
+
+    \section*{Acknowledgements}
+
+      The author's first formal introduction to programming language theory was \textcite{tapl}.
+
+    \section*{Version}
+
+      \input{version.tex}
 
   \mainmatter
 
   \chapter{Introduction}
 
-    \citet{wadler89} introduced type classes\index{type class}.
+    Welcome to programming language theory!
+
+  \part{Syntax}
+
+    \chapter{Languages and grammars}
+
+      A \emph{language}\index{language} is a set of strings.
+
+    \chapter{Parsing}
+
+      \section{Top-down parsing}
+
+      \section{Bottom-up parsing}
+
+  \part{Semantics}
+
+    \chapter{Operational semantics}
+
+      \section{Small-step operational semantics}
+
+      \section{Big-step operational semantics}
+
+    \chapter{Denotational semantics}
+
+    \chapter{Axiomatic semantics}
+
+    \chapter{Categorical semantics}
+
+  \part{Types}
+
+    \chapter{Simple types}
+
+    \chapter{Subtyping}
+
+    \chapter{Parametric polymorphism}
+
+    \chapter{Type operators}
+
+    \chapter{Dependent types}
+
+    \chapter{Recursive types}
+
+    \chapter{Type inference}
 
   \backmatter
 
-  \bibliography{references}
+  \printbibliography
 
   \printindex
 \end{document}
