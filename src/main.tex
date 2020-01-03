@@ -1,14 +1,19 @@
-\documentclass[oneside,12pt]{book}
+\documentclass[12pt,oneside]{memoir}
 
 \usepackage[T1]{fontenc} % The font encoding
 \usepackage[utf8]{inputenc} % The input encoding
+\usepackage[USenglish]{babel} % For explicitly specifying the hyphenation rules
 \usepackage[hidelinks,pdfa]{hyperref} % For clickable links
 \usepackage{bookmark} % For `\bookmarksetup{startatroot}`
 \usepackage[style=authoryear]{biblatex} % For citations and references
 \usepackage{imakeidx} % For the index
 \usepackage{microtype} % For micro-typography
 \usepackage{pdfpages} % For the cover page
-\usepackage[Lenny]{fncychap} % For fancy chapter headings
+\usepackage{libertine} % The Linux Libertine and Biolinum typefaces
+\usepackage{inconsolata} % The Inconsolata typeface
+
+% Use Biolinum.
+\renewcommand*\familydefault{\sfdefault}
 
 % Load the references.
 \addbibresource{references.bib}
@@ -27,6 +32,8 @@
 
   \includepdf{cover}
 
+  \maketitle
+
   \pagebreak
   \hspace{0pt}
   \vfill
@@ -38,22 +45,20 @@
 
     \bigbreak
 
-    \noindent The image featured on the cover depicts Mount Semeru and the Tumpak Sewu Waterfalls in East Java, Indonesia. The photograph was captured by Filippo Cesarini and is available under the Creative Commons Zero license.
+    \noindent The cover image depicting Mount Semeru and the Tumpak Sewu Waterfalls in East Java, Indonesia is due to Filippo Cesarini, who graciously released it under the Creative Commons Zero License.
   \vfill
   \hspace{0pt}
   \pagebreak
 
   \input{00_preface}
 
+  \cleardoublepage
   \tableofcontents
 
   \mainmatter
 
-  % Customize the chapter heading style.
-  \ChNameVar{}
-  \ChNumVar{\fontsize{60}{62}\selectfont}
-  \ChTitleVar{\Huge\bfseries\rm}
-  \ChRuleWidth{1pt}
+  % Set the chapter heading style.
+  \chapterstyle{bianchi}
 
   \part{Syntax}
 
@@ -100,6 +105,9 @@
   \backmatter
   \bookmarksetup{startatroot}
   \addtocontents{toc}{\vspace{\normalbaselineskip}}
+
+  % Revert the chapter heading style.
+  \chapterstyle{default}
 
   \printbibliography[heading=bibintoc,title=References]
 

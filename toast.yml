@@ -44,6 +44,8 @@ tasks:
         -dBATCH \
         -sOutputFile=../book.pdf \
         main.pdf
+      cd ..
+      rm -rf .git src
 
   publish:
     dependencies:
