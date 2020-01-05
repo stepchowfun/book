@@ -1,4 +1,4 @@
-\documentclass[12pt,oneside]{memoir}
+\documentclass[ebook,oneside]{memoir}
 
 \usepackage[T1]{fontenc} % The font encoding
 \usepackage[utf8]{inputenc} % The input encoding
@@ -21,7 +21,7 @@
 % Set up the index.
 \makeindex[intoc]
 
-\title{Elements of Programming Languages}
+\title{Syntax, Semantics, and Types}
 \author{Stephan Boyer}
 \date{}
 
@@ -32,20 +32,12 @@
 
   \includepdf{cover}
 
-  \maketitle
-
   \pagebreak
   \hspace{0pt}
   \vfill
-    \noindent Copyright \copyright{} \the\year{} Stephan Boyer. All rights reserved.
-
-    \bigbreak
-
-    \noindent This book was typeset by the author using the \LaTeX{} document preparation system.
-
-    \bigbreak
-
-    \noindent The cover image depicting Mount Semeru and the Tumpak Sewu Waterfalls in East Java, Indonesia is due to Filippo Cesarini, who graciously released it under the Creative Commons Zero License.
+    \begin{center}
+      Copyright \copyright{} \the\year{} Stephan Boyer. All rights reserved.
+    \end{center}
   \vfill
   \hspace{0pt}
   \pagebreak
@@ -72,6 +64,8 @@
 
       \section{Bottom-up parsing}
 
+    \chapter{Variable substitution}
+
   \part{Semantics}
 
     \chapter{Operational semantics}
@@ -89,6 +83,8 @@
   \part{Types}
 
     \chapter{Simple types}
+
+    \chapter{Sums and products}
 
     \chapter{Subtyping}
 
