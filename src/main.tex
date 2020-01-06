@@ -1,4 +1,4 @@
-\documentclass[ebook,oneside]{memoir}
+\documentclass[ebook,oneside]{memoir} % 6 by 9 inches
 
 \usepackage[T1]{fontenc} % The font encoding
 \usepackage[utf8]{inputenc} % The input encoding
@@ -27,82 +27,94 @@
 
   \frontmatter
 
-  \includepdf{cover}
+    % Book cover
+    \includepdf{cover}
 
-  \pagebreak
-  \hspace{0pt}
-  \vfill
-    \begin{center}
-      Copyright \copyright{} \the\year{} Stephan Boyer. All rights reserved.
-    \end{center}
-  \vfill
-  \hspace{0pt}
-  \pagebreak
+    % Copyright notice
+    \pagebreak
+    \hspace{0pt}
+    \vfill
+      \begin{center}
+        Copyright \copyright{} \the\year{} Stephan Boyer. All rights reserved.
+      \end{center}
+    \vfill
+    \hspace{0pt}
+    \pagebreak
 
-  \input{00_preface}
+    % Preface
+    \input{00_preface}
 
-  \cleardoublepage
-  \tableofcontents
+    % Table of contents
+    \cleardoublepage
+    \tableofcontents
 
   \mainmatter
 
-  % Set the chapter heading style.
-  \chapterstyle{bianchi}
+    % Set the chapter heading style.
+    \chapterstyle{bianchi}
 
-  \part{Syntax}
+    \part{Syntax}
 
-    \chapter{Languages and grammars}
+      \chapter{Languages and grammars}
 
-      A \emph{language}\index{language} is a set of strings.
+        A \emph{language}\index{language} is a set of strings.
 
-    \chapter{Parsing}
+      \chapter{Parsing}
 
-      \section{Top-down parsing}
+        \section{Top-down parsing}
 
-      \section{Bottom-up parsing}
+        \section{Bottom-up parsing}
 
-    \chapter{Variable substitution}
+      \chapter{Variable substitution}
 
-  \part{Semantics}
+    \part{Semantics}
 
-    \chapter{Operational semantics}
+      \chapter{Operational semantics}
 
-      \section{Small-step operational semantics}
+        \section{Small-step operational semantics}
 
-      \section{Big-step operational semantics}
+        \section{Big-step operational semantics}
 
-    \chapter{Denotational semantics}
+      \chapter{Denotational semantics}
 
-    \chapter{Axiomatic semantics}
+      \chapter{Axiomatic semantics}
 
-    \chapter{Categorical semantics}
+      \chapter{Categorical semantics}
 
-  \part{Types}
+    \part{Types}
 
-    \chapter{Simple types}
+      \chapter{Simple types}
 
-    \chapter{Sums and products}
+      \chapter{Sums and products}
 
-    \chapter{Subtyping}
+      \chapter{Subtyping}
 
-    \chapter{Parametric polymorphism}
+      \chapter{Parametric polymorphism}
 
-    \chapter{Type operators}
+      \chapter{Type operators}
 
-    \chapter{Dependent types}
+      \chapter{Dependent types}
 
-    \chapter{Recursive types}
+      \chapter{Recursive types}
 
-    \chapter{Type inference}
+      \chapter{Type inference}
+
+    % End the last `\part{...}` so the references and index sections below appear at the top-level
+    % of the PDF bookmarks.
+    \bookmarksetup{startatroot}
+
+    % Revert the chapter heading style.
+    \chapterstyle{default}
 
   \backmatter
-  \bookmarksetup{startatroot}
-  \addtocontents{toc}{\vspace{\normalbaselineskip}}
 
-  % Revert the chapter heading style.
-  \chapterstyle{default}
+    % In the table of contents, add some vertical space between the last part above and the
+    % references section below.
+    \addtocontents{toc}{\vspace{\normalbaselineskip}}
 
-  \printbibliography[heading=bibintoc,title=References]
+    % References
+    \printbibliography[heading=bibintoc,title=References]
 
-  \printindex
+    % Index
+    \printindex
 \end{document}
