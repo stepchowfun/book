@@ -9,7 +9,7 @@
 \usepackage{imakeidx} % For the index
 \usepackage{microtype} % For micro-typography
 \usepackage{pdfpages} % For the cover page
-\usepackage[sfdefault,mono=false]{libertine} % The Linux Libertine and Biolinum typefaces
+\usepackage[osf]{mathpazo} % The Palatino and Pazo Math typefaces
 \usepackage{inconsolata} % The Inconsolata typeface
 
 % Load the references.
@@ -49,9 +49,6 @@
     \tableofcontents
 
   \mainmatter
-
-    % Set the chapter heading style.
-    \chapterstyle{bianchi}
 
     \part{Syntax}
 
@@ -102,9 +99,6 @@
     % End the last `\part{...}` so the references and index sections below appear at the top-level
     % of the PDF bookmarks.
     \bookmarksetup{startatroot}
-
-    % Revert the chapter heading style.
-    \chapterstyle{default}
 
   \backmatter
 
