@@ -2,14 +2,15 @@
 
 \usepackage[T1]{fontenc} % The font encoding
 \usepackage[utf8]{inputenc} % The input encoding
-\usepackage[USenglish]{babel} % For explicitly specifying the hyphenation rules
+\usepackage[USenglish]{babel} % Explicitly specify the hyphenation rules.
 \usepackage[hidelinks,pdfa]{hyperref} % For clickable links
 \usepackage{bookmark} % For `\bookmarksetup{startatroot}`
 \usepackage[style=authoryear]{biblatex} % For citations and references
 \usepackage{imakeidx} % For the index
 \usepackage{microtype} % For micro-typography
 \usepackage{pdfpages} % For the cover page
-\usepackage[osf]{mathpazo} % The Palatino and Pazo Math typefaces
+\usepackage{libertine} % The Libertine typeface
+\usepackage[libertine]{newtxmath} % A math font based on Libertine
 \usepackage{inconsolata} % The Inconsolata typeface
 
 % Load the references.
@@ -18,13 +19,14 @@
 % Set up the index.
 \makeindex[intoc]
 
-\title{Syntax, Semantics, and Types}
+% Define macros.
+\input{macros}
+
+\title{\booktitle}
 \author{Stephan Boyer}
 \date{}
 
 \begin{document}
-  \input{macros}
-
   \frontmatter
 
     % Book cover
